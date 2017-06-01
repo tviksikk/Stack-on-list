@@ -22,7 +22,7 @@ public:
 		}
 	}
 
-	void enqueue(T val)
+	void enqueue(T& val)
 	{
 		Node* Temp = new Node;
 		Temp->elem = val;
@@ -75,7 +75,7 @@ public:
 private:
 	struct Node
 	{
-		Node() :next(0), elem(0)
+		Node() :next(0), elem(T())
 		{
 		}
 		Node* next;

@@ -1,16 +1,17 @@
 #include <iostream>
-#define TEST 1
+
+#define TEST 0
 
 #if TEST == 1
 #include "StackNode.h"
 
 int main()
 {
-	Stack<char> St;
-	St.push('a');
-	St.push('b');
-	St.push('d');
-	St.push('c');
+	Stack<int> St;
+	St.push(rand());
+	St.push(rand());
+	St.push(rand());
+	St.push(rand());
 	try
 	{
 		St.print();
@@ -36,15 +37,18 @@ int main()
 }
 #else
 #include "Queue.h"
-
+#include <fstream>
 int main()
 {
 	try
 	{
-		NodeQueue<int> Queue;
-		Queue.enqueue(10);
-		Queue.enqueue(20);
-		Queue.enqueue(30);
+		setlocale(NULL, "RUSSIA");
+		NodeQueue<std::string> Queue;
+		std::ifstream file("C:\\Windows\\Inst.log");
+		std::string str;         
+		while (getline(file, str,'\n'))
+			Queue.enqueue(str); 
+
 		std::cout << "Top is: " << Queue.front() << '\n';
 		Queue.dequeue();
 		Queue.print();
