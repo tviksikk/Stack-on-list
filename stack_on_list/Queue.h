@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 
 template<class T>
 class NodeQueue
@@ -20,6 +21,15 @@ public:
 			delete head;
 			head = tail;
 		}
+	}
+
+	void fillFromFile(std::string name)
+	{
+		std::ifstream file(name);
+		std::string str;
+		while (getline(file, str, '\n'))
+			enqueue(str);
+		file.close();
 	}
 
 	void enqueue(T& val)

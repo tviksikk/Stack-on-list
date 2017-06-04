@@ -2,6 +2,7 @@
 #define _STACKNODE_H_
 
 #include <string>
+#include<iostream>
 
 template<class T>
 class Stack
@@ -68,6 +69,10 @@ public:
 			std::cout << ptr->elem << ' ';
 		}
 		std::cout << '\n';
+	}
+	void addRandInt()
+	{
+		push(rand());
 	}
 private:
 	struct Node

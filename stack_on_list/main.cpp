@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define TEST 0
+#define TEST 1
 
 #if TEST == 1
 #include "StackNode.h"
@@ -8,10 +8,12 @@
 int main()
 {
 	Stack<int> St;
-	St.push(rand());
-	St.push(rand());
-	St.push(rand());
-	St.push(rand());
+	St.addRandInt();
+	St.addRandInt();
+	St.addRandInt();
+	St.addRandInt();
+	St.addRandInt();
+	St.addRandInt();
 	try
 	{
 		St.print();
@@ -44,10 +46,7 @@ int main()
 	{
 		setlocale(NULL, "RUSSIA");
 		NodeQueue<std::string> Queue;
-		std::ifstream file("C:\\Windows\\Inst.log");
-		std::string str;         
-		while (getline(file, str,'\n'))
-			Queue.enqueue(str); 
+		Queue.fillFromFile("file.txt");
 
 		std::cout << "Top is: " << Queue.front() << '\n';
 		Queue.dequeue();
